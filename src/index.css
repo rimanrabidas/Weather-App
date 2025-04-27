@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+
+body{
+    font-family: "Fjalla One", serif;
+}
+/* 
+.temp{ font-family: Arial, sans-serif;} */
+.header{ 
+    margin-left: -1.2rem;
+ box-shadow: 0rem .5rem 1rem rgb(235, 234, 240) ; 
+  }  
+  
+  /* shadow-black/60 shadow-lg */
+  .mainpart{
+    box-shadow: .2rem .4rem .5rem 0rem rgba(0, 0, 0, 0.579) ;
+  }
+
+.boxshadow{
+    box-shadow: 0rem .3rem .5rem 0rem rgba(0, 0, 0, 0.579) ;
+}
+.boxshadow2{
+    box-shadow: 0rem .2rem .4rem 0rem rgba(0, 0, 0, 0.579) ;
+}
+.boxshadow3{
+    box-shadow: 0rem 0rem .5rem 0rem rgb(88, 43, 233) inset;
+}
+
+.sideberandlocationtrack{
+    box-shadow: .0rem .0rem .3rem 0rem rgba(162, 160, 160, 0.579) ;
+}
+.ThemeIcon{
+    box-shadow: .0rem .0rem .3rem 0rem rgba(162, 160, 160, 0.579) ;
+}
+.ThemeChange{
+    animation: modeChange .3s linear;
+}
+
+@keyframes modeChange { 100%{transform: rotate(360deg);}}
+
+.value{
+    box-shadow: .0rem -.3rem .9rem 0rem rgba(185, 184, 184, 0.579) ;
+}
+
+.sunposition{ box-shadow: 0rem 0rem 2rem 0rem rgb(59, 0, 255) inset;}
+.sunposition2{ box-shadow: 0rem 0rem .3rem 0rem rgb(8, 8, 8) inset;}
+
+.chakra{ animation: chakraro 20s linear infinite;}
+.chakra2{ animation: chakraro2 20s linear infinite;}
+
+@keyframes chakraro {100%{ transform: rotate(360deg);}}
+@keyframes chakraro2 {100%{ transform: rotate(-360deg);}}
+.nav{
+    box-shadow: 0rem .3rem .5rem 0rem rgba(0, 0, 0, 0.579) ;
+}
+.navsearch{
+    box-shadow: .2rem -.2rem .5rem 0rem rgba(27, 27, 27, 0.579) inset ;
+}
+.clipPathUse{
+    clip-path: polygon(40% 0%, 100% 0%, 100% 100%, 20% 100%);
+}
