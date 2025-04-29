@@ -6,7 +6,7 @@ export const  ApiProvider = ({children}) => {
 
 const [weather, setWeather] = useState({});
 const [error,setError]=useState();
-  const [forecastweather, setForecastweather] = useState();
+const [forecastweather, setForecastweather] = useState();
   
 const [loading,setLoading] = useState(true);
 const [inputCity, setInputCity] = useState();
