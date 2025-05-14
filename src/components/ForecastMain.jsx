@@ -5,8 +5,7 @@ import { GiNinjaStar } from 'react-icons/gi';
 
 const ForecastMain = () => {
 
- const {weather,localTimeDate,
-    localTimeMonth,localWeekDay,time,theame} = UseApi();
+ const {weather,theame} = UseApi();
 
   return (
     <div className=""> 
@@ -24,15 +23,15 @@ const ForecastMain = () => {
     <GiNinjaStar className={`chakra2 size-8 ${theame===true? "text-violet-600":"text-zinc-400"}`}/>
     </p>
 </div>
-    <div className={` mainpart relative flex flex-col w-full min-h-50 max-h-55 h-fit mt-5 rounded-3xl  ${theame===true? "bg-gradient-to-b  from-violet-400 to-violet-600": "bg-gradient-to-b  from-zinc-500 to-zinc-700"} hover:scale-101 cursor-pointer`}>
+    <div className={` mainpart relative flex flex-col w-full lg:w-110 min-h-50 max-h-62 lg:h-62 h-fit mt-5 rounded-3xl  ${theame===true? "bg-gradient-to-b  from-violet-400 to-violet-600": "bg-gradient-to-b  from-zinc-500 to-zinc-700"} hover:scale-101 cursor-pointer`}>
                 <div className="flex flex-row justify-between text-white p-4 ">
-                    <h1 className='text-2xl font-medium'>{`${localWeekDay}, ${localTimeDate} ${localTimeMonth}`}</h1>
-                    <h1 className='flex flex-col justify-center items-center text-2xl font-medium'>Today<p className='text-sm'>{time}</p></h1>
+                    <h1 className='text-2xl font-medium'>date</h1>
+                    <h1 className='flex flex-col justify-center items-center text-2xl font-medium'>Today<p className='text-sm'>time</p></h1>
                 </div>
     
     <div className="flex flex-col">
-    <h1 className={`temp flex text-7xl pl-3 font-bold ${theame===true? "bg-gradient-to-b  from-white/100 to-violet-400": "bg-gradient-to-b  from-zinc-50 to-zinc-200"} bg-clip-text text-transparent `}>{weather.main.temp.toFixed()} <p className={`text-3xl font-bold ${theame===true? "bg-gradient-to-b  from-white/100 to-violet-500": "bg-gradient-to-b  from-zinc-50 to-zinc-200"} bg-clip-text text-transparent`}> °C</p></h1>
-    <h2 className='font-bold text-xl pl-4 pt-1 text-white/90'> {weather.weather[0].main}</h2>
+    <h1 className={`temp flex text-7xl pl-3 font-bold ${theame===true? "bg-gradient-to-b  from-white/100 to-violet-400": "bg-gradient-to-b  from-zinc-50 to-zinc-200"} bg-clip-text text-transparent `}>{weather.data.values.temperature.toFixed()} <p className={`text-3xl font-bold ${theame===true? "bg-gradient-to-b  from-white/100 to-violet-500": "bg-gradient-to-b  from-zinc-50 to-zinc-200"} bg-clip-text text-transparent`}> °C</p></h1>
+    <h2 className='font-bold text-xl pl-4 pt-1 text-white/90'> {weather.location.name}</h2>
     </div>
     <div className="SunnyCloudy">
     <IoIosSunny  className='flex absolute size-25 top-23 text-yellow-400  right-17' />

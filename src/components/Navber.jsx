@@ -9,7 +9,7 @@ const Navber = ({setsearchpage,searchpage}) => {
   const {theame} = UseApi();
   return (
     <div className="flex w-full z-2 h-fit justify-center">
-    <div className={` flex fixed bottom-5 flex-row justify-around items-center w-[85%] h-fit p-2 rounded-full ${theame===true? "bg-white nav" : "bg-zinc-800 navdark"} shadow-violet-200 shadow-2xl`}>
+    <div className={` flex fixed lg:hidden bottom-5 flex-row justify-around items-center w-[85%] h-fit p-2 rounded-full ${theame===true? "bg-white nav" : "bg-zinc-800 navdark"} shadow-violet-200 shadow-2xl`}>
     <NavLink to={"/"} className="">
     <AiOutlineHome  className={`size-10 p-2 rounded-md ${theame===true? "text-violet-500" : "text-zinc-200"} hover:scale-105 cursor-pointer`}/>
     </NavLink>

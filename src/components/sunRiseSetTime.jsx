@@ -7,7 +7,7 @@ import { UseApi } from '../../BioContext'
 const SunRiseSetTime = () => {
   const {theame} = UseApi();
   return (
-    <div className={`flex flex-col w-full ${theame===true? "bg-white text-black" : "text-white bg-zinc-700"} h-30 rounded-2xl mt-5 `}>
+    <div className={`flex flex-col w-full ${theame===true? "bg-white text-black" : "text-white bg-zinc-700"} h-30 lg:h-34 lg:mt-10 lg:w-[70%] lg:ml-[15%] rounded-2xl mt-5 `}>
         <div className="flex relative flex-col w-full h-full sunposition2  rounded-2xl justify-center items-center ">
 <div className="text-xl absolute top-7 left-15">Sunrise</div>
 <p className='flex flex-row absolute top-17 left-15'> 06.00 AM </p>
