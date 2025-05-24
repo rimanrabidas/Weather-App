@@ -9,32 +9,32 @@ body{
 .header{ 
     margin-left: -1.25rem;
   }  
-  .headerlight{
+  .headerLight{
     box-shadow: 0rem .5rem 1rem rgb(208, 208, 210) ; 
   }
-  .headerdark{
+  .headerDark{
     box-shadow: 0rem .5rem 1rem rgb(20, 21, 15) ; 
   }
   
   /* shadow-black/60 shadow-lg */
-  .mainpart{
+  .mainPart{
     box-shadow: .2rem .4rem .5rem 0rem rgba(0, 0, 0, 0.579) ;
   }
 
-.boxshadow{
+.boxShadow{
     box-shadow: 0rem .3rem .5rem 0rem rgba(0, 0, 0, 0.579) ;
 }
-.boxshadow2{
+.boxShadow2{
     box-shadow: 0rem .2rem .4rem 0rem rgba(0, 0, 0, 0.579) ;
 }
-.boxshadow3{
+.boxShadow3{
     box-shadow: 0rem 0rem .5rem 0rem rgb(88, 43, 233) inset;
 }
-.boxshadow3dark{
+.boxShadow3dark{
     box-shadow: 0rem 0rem .5rem 0rem rgb(89, 89, 90) inset;
 }
 
-.sideberandlocationtrack{
+.sideBerAndLocationTrack{
     box-shadow: .0rem .0rem .3rem 0rem rgba(162, 160, 160, 0.579) ;
 }
 .ThemeIcon{
@@ -50,77 +50,54 @@ body{
     box-shadow: .0rem -.3rem .9rem 0rem rgba(185, 184, 184, 0.579) ;
 }
 
-.sunposition{ box-shadow: 0rem 0rem 2rem 0rem rgb(59, 0, 255) inset;}
-.sunpositiondark{ box-shadow: 0rem 0rem 1.5rem 0rem rgb(102, 102, 102) inset;}
-.sunposition2{ box-shadow: 0rem 0rem .3rem 0rem rgb(8, 8, 8) inset;}
+.sunPosition{ box-shadow: 0rem 0rem 2rem 0rem rgb(59, 0, 255) inset;}
+.sunPositionDark{ box-shadow: 0rem 0rem 1.5rem 0rem rgb(102, 102, 102) inset;}
+.sunPosition2{ box-shadow: 0rem 0rem .3rem 0rem rgb(8, 8, 8) inset;}
 
-.chakra{ animation: chakraro 20s linear infinite;}
-.chakra2{ animation: chakraro2 20s linear infinite;}
+.Rotate{ animation: Rotate 20s linear infinite;}
+.Rotate2{ animation: Rotate2 20s linear infinite;}
 
-@keyframes chakraro {100%{ transform: rotate(360deg);}}
-@keyframes chakraro2 {100%{ transform: rotate(-360deg);}}
+@keyframes Rotate {100%{ transform: rotate(360deg);}}
+@keyframes Rotate2 {100%{ transform: rotate(-360deg);}}
 .nav{
     box-shadow: 0rem .3rem .5rem 0rem rgba(0, 0, 0, 0.579) ;
 }
-.navdark{
+.navDark{
     box-shadow: 0rem .3rem .5rem 0rem rgba(102, 101, 101, 0.579) ;
 }
-.navsearch{
+.navSearch{
     box-shadow: .2rem -.2rem .5rem 0rem rgba(27, 27, 27, 0.579) inset ;
 }
 .clipPathUse{
-    clip-path: polygon(40% 0%, 100% 0%, 100% 100%, 20% 100%);
+    clip-path: polygon(60% 0%, 100% 0%, 100% 100%, 40% 100%);
+    transition: .5s ;
+}
+.clipPathUse2{
+    clip-path: polygon(0% 0%, 60% 0%, 40% 100%, 0% 100%);
+    transition: .5s;
 }
 
-.fontstyle{
+.fontStyle{
     font-family:'Times New Roman', Times, serif;
 font-style: italic;
 }
 
-.manushadow{
+.menuShadow{
     box-shadow: 0rem 0rem .1rem .1rem rgba(180, 178, 178, 0.579) ;
   
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.shadoww{
-    animation: blinkshadoww 3s linear infinite ;
+.uvIndex{
+    border-radius: 3rem;
+    box-shadow: .1rem .1rem .1rem .1rem;
 }
-@keyframes blinkshadoww {
+
+
+.Shadow{
+    animation: blinkShadow 3s linear infinite ;
+}
+@keyframes blinkShadow {
  0%{
     top: -100%;
     left: 0%;

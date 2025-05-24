@@ -1,12 +1,10 @@
-import React from 'react'
-
 const Loading = () => {
     const load=[1,2,3,4,5,6,7,8]
   return (
     <div className="flex items-center relative overflow-hidden flex-col w-full h-full pl-5 pr-5 bg-violet-100 animate-pulse">
         <div className="flex absolute rotate-[45deg] w-fit h-[100%] shadoww">
-        <div className="flex w-22 h-[100%] bg-white/21 "></div>
-        <div className="flex w-5 h-[100%] bg-white/21 m-3"></div>    
+        <div className="flex w-22 h-[100%] bg-violet-100 "></div>
+        <div className="flex w-5 h-[100%] bg-violet-100 m-3"></div>    
         </div>
    <div className="flex flex-row w-[110%] h-15 bg-zinc-100 justify-around items-center "><div className="w-12 h-12 rounded-xl bg-violet-100 shadow-sm shadow-black/10"></div>
    <div className="w-25 h-8 mt-4 rounded-b-full bg-violet-200"></div>
