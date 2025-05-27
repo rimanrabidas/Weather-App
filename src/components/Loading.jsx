@@ -28,7 +28,7 @@ const Loading = () => {
     <div className="w-10 h-10 rounded-full bg-violet-200"></div>
   </div>
 <div className="grid grid-cols-2 gap-5 w-full h-fit bg-violet-200 p-3 rounded-2xl">
-  {load.map((id) => <div key={id} className="flex flex-col rounded-2xl overflow-hidden w-full h-40 bg-violet-100 justify-between items-center shadow-md shadow-zinc-400">
+  {load.map((num) => <div key={num} className="flex flex-col rounded-2xl overflow-hidden w-full h-40 bg-violet-100 justify-between items-center shadow-md shadow-zinc-400">
     <div className="w-full h-8 bg-violet-300 rounded-b-4xl"></div>
     <div className="w-16 h-16 rounded-full bg-violet-200"></div>
     <div className="w-full h-10 bg-violet-300 rounded-t-4xl"></div>

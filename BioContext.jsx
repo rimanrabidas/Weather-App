@@ -8,14 +8,19 @@ export const  ApiProvider = ({children}) => {
 const [weather, setWeather] = useState({});
 const [forecastWeather, setForecastWeather] = useState(); 
 const [dailyForecastWeather, setDailyForecastWeather] = useState(); 
-const [error,setError]=useState();
+const [error,setError] = useState();
 const [loading,setLoading] = useState(true);
 const [inputCity, setInputCity] = useState();
-const [city, setCity] = useState("delhi");
+const [city, setCity] = useState(() => {const savedCity = localStorage.getItem('lastCity'); return savedCity || "delhi"});
 const [theme,setTheme]  = useState(true)
 const [history,setHistory] =  useState([]);
 const [suggestions,setSuggestions] = useState([])
 const [searchError,setSearchError] = useState();
+
+useEffect(() => {
+  localStorage.setItem('lastCity', city);
+}, [city]);
+
 
 useEffect(() => {
 const fetchWeather = async () => {
@@ -48,6 +53,7 @@ console.log(dailyForecastData)
   fetchWeather();
 }, [city]);
   
+
 
   useEffect(() => {
     const fetchSuggestions = async () => {

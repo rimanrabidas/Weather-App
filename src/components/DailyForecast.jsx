@@ -11,7 +11,7 @@ const DailyForecast = ({selectDay}) => {
           
    const uvIndex = selectDay.values.uvIndex;
    const pressureSeaLevel = selectDay.values.pressureSeaLevel.toFixed();
-       const todayLine = [
+       const todayLineTwo = [
            {
                id: 1,
                pic: <p><BsDropletFill  className={`size-16 ${theme===true? "text-zinc-500" : "text-zinc-100"}`}/></p>,
@@ -62,11 +62,11 @@ const DailyForecast = ({selectDay}) => {
 
     <div className={`overflow-x-scroll grid grid-cols-2 lg:grid-cols-6 w-[99%] ml-0.5 h-fit justify-around ${theme===true? "bg-gradient-to-b from-violet-50 to-white boxShadow3 " : "bg-gradient-to-b from-zinc-800 to-white/10 boxShadow3dark"}  gap-5 p-3 mt-1 rounded-tr-2xl rounded-br-2xl rounded-bl-2xl`}>
        
-    {   todayLine.map(({id,pic,value,description,math})=>(
- <div key={id} className={`flex flex-col boxShadow text-white/90 justify-between items-center ${theme===true? "bg-violet-100 " : "bg-gradient-to-b from-zinc-400 to-zinc-700 "}min-w-23 min-h-40 rounded-3xl hover:scale-105 cursor-pointer`} >
-    <p className={`flex shadow-xl rounded-t-2xl rounded-b-[100%] justify-center text-sm font-bold w-full  pb-1 pt-1 ${theme===true? "bg-gradient-to-t from-violet-200 to-violet-600" : "bg-gradient-to-t from-zinc-700 to-zinc-600"}`}>{description}</p>
- <span>{pic}</span>
- <h2 className={`flex flex-row rounded-b-3xl value rounded-t-[100%] justify-center text-2xl font-bold pb-1 pt-1 w-full text-white/90 ${theme===true? "bg-gradient-to-t from-violet-200 to-violet-600" : "bg-gradient-to-t from-zinc-600 to-zinc-700"}`}>{value}{math}</h2>
+    {   todayLineTwo.map((item)=>(
+ <div key={item.id} className={`flex flex-col boxShadow text-white/90 justify-between items-center ${theme===true? "bg-violet-100 " : "bg-gradient-to-b from-zinc-400 to-zinc-700 "}min-w-23 min-h-40 rounded-3xl hover:scale-105 cursor-pointer`} >
+    <p className={`flex shadow-xl rounded-t-2xl rounded-b-[100%] justify-center text-sm font-bold w-full  pb-1 pt-1 ${theme===true? "bg-gradient-to-t from-violet-200 to-violet-600" : "bg-gradient-to-t from-zinc-700 to-zinc-600"}`}>{item.description}</p>
+ <span>{item.pic}</span>
+ <h2 className={`flex flex-row rounded-b-3xl value rounded-t-[100%] justify-center text-2xl font-bold pb-1 pt-1 w-full text-white/90 ${theme===true? "bg-gradient-to-t from-violet-200 to-violet-600" : "bg-gradient-to-t from-zinc-600 to-zinc-700"}`}>{item.value}{item.math}</h2>
  </div>
          )  )}
        

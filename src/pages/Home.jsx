@@ -149,25 +149,25 @@ const [hideWeight,setHideWeight] = useState({1:true, 2:true, 3:true, 4:true, 5:t
         <BiCurrentLocation onClick={handleGeolocation} className={`sideBerAndLocationTrack size-11 border-1  border-black/20 p-2 rounded-md ${theme===true? "text-violet-700" : "text-zinc-300"} hover:scale-105 cursor-pointer`}/> </div>
 <MainPart weatherType={weatherType} localDate={localDate} localTime={localTime} weekday={weekday} />
   <h2 className={`mt-7 pl-1 pt-1 rounded-t-sm rounded-tr-full w-[40%]  ${theme===true? "bg-violet-500" : "bg-zinc-700"} font-bold`}>Hourly Forecast</h2>
-<div  className={`flex w-full gap-6 overflow-scroll h-34 pt-2 pb-2 pl-1 border-t ${theme===true? "border-violet-500" : "border-zinc-300"}  lg:h-40`}>
-{forecastWeather.timelines.hourly.map((id) =>(
-  <div key={id} className={`flex flex-col justify-between items-center 
+<div  className={`flex w-full gap-5 overflow-scroll h-34 pt-2 pb-2 pl-1 border-t ${theme===true? "border-violet-500" : "border-zinc-300"}  lg:h-40`}>
+{forecastWeather.timelines.hourly.map((timeline,index) =>(
+  <div key={index} className={`flex flex-col justify-between items-center 
    border min-w-18 h-full rounded-2xl ${theme===true? "text-violet-500" : "text-zinc-300"} p-1 shadow shadow-black/40 lg:min-w-20 `}>
-    <div className="text-sm flex flex-col items-center">{weekday===new Date(id.time).toLocaleDateString('en-US',{weekday: 'long'})? "Today": new Date(id.time).toLocaleDateString('en-US',{weekday: 'short'})}
-      <div className="">{new Date(id.time).toLocaleTimeString([],{hour: '2-digit', minute:'2-digit', hour12:"true"})}</div>
+    <div className="text-sm flex flex-col items-center">{weekday===new Date(timeline.time).toLocaleDateString('en-US',{weekday: 'long'})? "Today": new Date(timeline.time).toLocaleDateString('en-US',{weekday: 'short'})}
+      <div className="">{new Date(timeline.time).toLocaleTimeString([],{hour: '2-digit', minute:'2-digit', hour12:"true"})}</div>
     </div>
-   <img className='size-10' src={`public/${id.values.weatherCode}.png`} alt="Weather Icon" />
-    <div className="">{id.values.temperatureApparent.toFixed()}°C</div>
+   <img className='size-10' src={`public/${timeline.values.weatherCode}.png`} alt="Weather Icon" />
+    <div className="">{timeline.values.temperatureApparent.toFixed()}°C</div>
   </div>
 ))}
 </div>
-        <Today todayLine={todayLine} hideToggle={hideToggle} hideWeight={hideWeight}/>
-        <TodayTwo homepageForecast={homepageForecast} setHomepageForecast = {setHomepageForecast}/>
+        <Today highLightItem={todayLine} hideToggle={hideToggle} hideWeight={hideWeight}/>
+        <TodayTwo homeForecast={homepageForecast}/>
         <Navbar setSearchPage={setSearchPage} searchPage={searchPage}/>
         <Search  setSearchPage={setSearchPage} searchPage={searchPage} handleGeolocation={handleGeolocation}/>
  <div className="flex flex-col items-center justify-center w-full h-fit text-3xl text-zinc-400 font-bold mt-16 fontstyle"> <p className='flex'>Made With <FaHeart className='size-8 ml-2 text-violet-600' /></p><p className='text-[1.2rem] font-light '>by Riman</p></div>
       <Menubar menubar = {menubar} setMenubar = {setMenubar}  setSearchPage={setSearchPage}
-        searchPage={searchPage} homepageForecast={homepageForecast} setHomepageForecast = {setHomepageForecast} todayLine={todayLine} hideToggle={hideToggle} hideWeight={hideWeight}/>
+        searchPage={searchPage} homepageForecast={homepageForecast} setHomepageForecast = {setHomepageForecast} menuItem={todayLine} hideToggle={hideToggle} hideWeight={hideWeight}/>
     </div>
         ):(<p className='flex w-full h-screen justify-center items-center text-5xl text-zinc-950'><p className='animate-pulse flex'>Loading...<AiOutlineLoading3Quarters className='animate-spin' /></p></p>)}
     </div>

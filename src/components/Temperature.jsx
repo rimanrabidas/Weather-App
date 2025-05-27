@@ -35,11 +35,11 @@ const Temperature = () => {
   
           <div className=" flex-row w-full h-fit justify-around bg-gradient-to-b from-violet-100 via-50% via-white to-violet-100 grid grid-cols-4 gap-[10%] pt-3 pb-3 mt-2 rounded-2xl">
              
-          {   temperatureLine.map(({id,img,value,description})=>(
-   <div key={id} className="flex flex-col text-white/90 justify-center items-center bg-gradient-to-bl from-violet-400 to-violet-700 h-fit rounded-2xl hover:scale-105 cursor-pointer" >
-   <h2 className='text-md font-bold pt-2'>{value}</h2>
-   <img className='size-10' src={img} alt="Rain" />
-   <p className='text-sm text-white/60 pb-2'>{description}</p>
+          {   temperatureLine.map((temp)=>(
+   <div key={temp.id} className="flex flex-col text-white/90 justify-center items-center bg-gradient-to-bl from-violet-400 to-violet-700 h-fit rounded-2xl hover:scale-105 cursor-pointer" >
+   <h2 className='text-md font-bold pt-2'>{temp.value}</h2>
+   <img className='size-10' src={temp.img} alt="Rain" />
+   <p className='text-sm text-white/60 pb-2'>{temp.description}</p>
    </div> ))}
              
           </div>

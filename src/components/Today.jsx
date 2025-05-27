@@ -5,7 +5,7 @@ import { FaEyeSlash } from 'react-icons/fa6';
 import { FaCommentAlt } from 'react-icons/fa';
 
 
-const Today = ({todayLine,hideToggle,hideWeight}) => {
+const Today = ({highLightItem,hideToggle,hideWeight}) => {
 const {theme} = UseApi();
 const [hideIcon,setHideIcon] = useState({1:true, 2:true, 3:true, 4:true, 5:true, 6:true});
  const ToggleIcon = (id) =>{ setHideIcon((prev) => ({...prev,[id] : !prev[id],}))}
@@ -28,7 +28,7 @@ const [hideIcon,setHideIcon] = useState({1:true, 2:true, 3:true, 4:true, 5:true,
 
         <div className={` overflow-x-scroll grid grid-cols-2 lg:grid-cols-6 w-[98%] ml-1 h-fit ${theme===true? "bg-gradient-to-b from-violet-50 to-white boxShadow3 " : "bg-gradient-to-b from-zinc-800 to-white/10 boxShadow3dark"} gap-5 p-3 mt-4 rounded-2xl`}>
            
-        {   todayLine.map(({id,pic,value,description,math})=> hideWeight[id] && (
+        {   highLightItem.map(({id,pic,value,description,math})=> hideWeight[id] && (
  <div onClick={() => ToggleIcon(id)} key={id} className={`flex flex-col relative boxShadow text-white/90 ${hideWeight[id]? "block" : "hidden"} justify-between items-center ${theme===true? "bg-violet-100 " : "bg-gradient-to-b from-zinc-400 to-zinc-700 "}min-w-23 min-h-40 rounded-3xl hover:scale-105 cursor-pointer`} >
   <div onClick={() => hideToggle(id)} className={`${hideIcon[id]? "w-0 h-8" : "w-8 h-8"} transition-all duration-100  overflow-hidden absolute top-[30%] left-[70%] flex `}><FaCommentAlt className='absolute size-8 text-white'/><FaEyeSlash className='absolute size-4 top-1 left-2 text-black'/></div>
     <p className={`flex shadow-xl rounded-t-2xl rounded-b-[100%] justify-center text-sm font-bold w-full  pb-1 pt-1 ${theme===true? "bg-gradient-to-t from-violet-200 to-violet-600" : "bg-gradient-to-t from-zinc-700 to-zinc-600"}`}>{description}</p>

@@ -54,28 +54,28 @@ const HourlyForecast = () => {
   <div onClick={handleTemperature} className={`${temperature===true? " border-2 " : ""} ${theme===true? " bg-violet-500 " : " bg-zinc-700"}  pl-2 pr-2 rounded-full flex justify-center items-center p-1`}>Temperature</div>
   </div>
     <div className={` flex flex-row w-[100%] h-[10rem] ${theme===true? "bg-gradient-to-b from-violet-50 to-white boxShadow3" : "bg-gradient-to-b from-zinc-800 to-zinc-600 boxShadow3dark"} gap-5 pr-3 pl-3 pb-1 -mb-10 rounded-b-2xl overflow-scroll`}>
-      { forecastWeather.timelines.hourly.map((id) => (
+      { forecastWeather.timelines.hourly.map((hour,index) => (
         
-    <div key={id} className={` h-full min-w-16 ${theme===true? " text-violet-500 " : " text-zinc-200"}  flex flex-col justify-end items-center `}>
+    <div key={index} className={` h-full min-w-16 ${theme===true? " text-violet-500 " : " text-zinc-200"}  flex flex-col justify-end items-center `}>
 {temperature?
-  <div className={`${temperature===false? "hidden":"block"} w-[60%] h-full flex flex-col justify-end items-center`}><div className="text-sm ">{id.values.temperature.toFixed()}°C </div>
-      <div style={{height: `${id.values.temperature.toFixed()*1.5}%`, backgroundColor: `rgb(255,${215-id.values.temperature.toFixed()*3},${130-id.values.temperature.toFixed()*3})`}} className={`w-full rounded-2xl`}> </div>
+  <div className={`${temperature===false? "hidden":"block"} w-[60%] h-full flex flex-col justify-end items-center`}><div className="text-sm ">{hour.values.temperature.toFixed()}°C </div>
+      <div style={{height: `${hour.values.temperature.toFixed()*1.5}%`, backgroundColor: `rgb(255,${215-hour.values.temperature.toFixed()*3},${130-hour.values.temperature.toFixed()*3})`}} className={`w-full rounded-2xl`}> </div>
 </div>:""}
 
      {humidity?
-      <div className={`${humidity===true? "block":"hidden"} w-[60%] h-full flex flex-col justify-end items-center`}><div className="text-sm ">{id.values.humidity.toFixed()}% </div>
-      <div style={{height: `${id.values.humidity.toFixed()}%`, backgroundColor: `rgb(165,${150-id.values.humidity.toFixed()*3},${255-id.values.humidity.toFixed()})`}} className={` w-full rounded-2xl`}> </div>
+      <div className={`${humidity===true? "block":"hidden"} w-[60%] h-full flex flex-col justify-end items-center`}><div className="text-sm ">{hour.values.humidity.toFixed()}% </div>
+      <div style={{height: `${hour.values.humidity.toFixed()}%`, backgroundColor: `rgb(165,${150-hour.values.humidity.toFixed()*3},${255-hour.values.humidity.toFixed()})`}} className={` w-full rounded-2xl`}> </div>
 </div>: ""}
 
 {wind?
   <div className={`${wind===false? "hidden":"block"} w-[115%] h-full pt-1 flex flex-col justify-between items-center`}>
-  <div className=" text-sm">{id.values.windSpeed} kph</div>
-<FiNavigation2 style={{rotate:`${id.values.windDirection}deg`}} className={`${theme===true? " text-black " : " text-white/70"} size-11`} />
+  <div className=" text-sm">{hour.values.windSpeed} kph</div>
+<FiNavigation2 style={{rotate:`${hour.values.windDirection}deg`}} className={`${theme===true? " text-black " : " text-white/70"} size-11`} />
 <div className=""></div>
 </div>:""
 }
-<div className=" text-sm ">{new Date(id.time).toLocaleTimeString([],{hour: '2-digit', minute:'2-digit', hour12:"true"})}</div>
-<div className={`text-xs ${theme===true? " bg-violet-500 " : " bg-zinc-500"}  pr-[60%] p-0.5 pl-[60%] text-white font-light `}>{new Date(id.time).toLocaleDateString('en-US',{weekday: 'short'})}</div>
+<div className=" text-sm ">{new Date(hour.time).toLocaleTimeString([],{hour: '2-digit', minute:'2-digit', hour12:"true"})}</div>
+<div className={`text-xs ${theme===true? " bg-violet-500 " : " bg-zinc-500"}  pr-[60%] p-0.5 pl-[60%] text-white font-light `}>{new Date(hour.time).toLocaleDateString('en-US',{weekday: 'short'})}</div>
       </div>
       
         ) )

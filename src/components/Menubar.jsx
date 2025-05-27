@@ -7,18 +7,31 @@ import { FaAngleDown, FaAngleUp, FaArrowTrendUp, FaLinkedin, FaSquareGithub } fr
 import { IoMdMoon } from 'react-icons/io';
 import { FaTelegramPlane, FaTwitterSquare } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BiSolidWidget } from 'react-icons/bi';
 
 const Menubar = ({menubar,setMenubar, setSearchPage,
-  searchPage,homepageForecast,setHomepageForecast,todayLine,hideToggle,hideWeight}) => {
+  searchPage,homepageForecast,setHomepageForecast,menuItem,hideToggle,hideWeight}) => {
  const {setTheme,theme,} = UseApi();
  const handleSearchBer = () =>{
   setSearchPage(!searchPage);
   setMenubar(!menubar);
  };
 
-const [weightBer,setWeightBer] = useState(true)
+const [weightBer,setWeightBer] = useState(true);
+
+useEffect(() => {
+  if (menubar===true) {
+    document.body.style.overflow = "hidden";
+  }else{
+     document.body.style.overflow = "auto";
+  }
+  return () => {
+     document.body.style.overflow = "auto";
+  }
+},[menubar])
+
+if (menubar===false) return null;
   return (
     <div  className= {` ${menubar === false ? "w-0 h-0 fixed top-7 left-10" : "w-full h-full fixed"} overflow-hidden transition-all duration-100 top-0 left-0 z-50   bg-black/70`} >
         <div className= {`relative flex flex-col lg:w-[30%] w-[70%] h-full ${theme===true? "bg-violet-100" : "bg-zinc-800"} rounded-tr-2xl rounded-br-2xl `}>
@@ -48,8 +61,8 @@ const [weightBer,setWeightBer] = useState(true)
           <div onClick={() => setWeightBer(!weightBer)} className={`${weightBer? "rounded-2xl" : "rounded-t-2xl"} ${theme===true? "bg-white/40" : "bg-black/20"} flex text-xl items-center p-1 justify-between pr-5  `}><div className="flex items-center gap-2"><BiSolidWidget className='size-8'/> Weight Hide</div> {weightBer? <FaAngleDown /> : <FaAngleUp />}</div>
           <div className={`${weightBer? "h-0" : "h-48"} ${theme===true? "bg-white/40" : "bg-black/20"} w-full flex flex-col overflow-hidden transition-all duration-300 -mt-3 rounded-b-2xl`}> 
 
-{todayLine.map((index) => (
-            <div key={index.id} className="flex w-full  justify-between p-1 pl-3 pr-3"> {index.description} <button onClick={() => hideToggle(index.id)} className={`w-12 h-5 rounded-full  menuShadow ${hideWeight[index.id]? "bg-black" : "bg-violet-500"} flex items-center`}> <div className={`w-6 h-4  rounded-full  ${hideWeight[index.id]? "bg-white ml-0.5" : "ml-5.5 bg-black/80"} `}></div></button> </div>))}
+{menuItem.map(({id,description}) => (
+            <div key={id} className="flex w-full  justify-between p-1 pl-3 pr-3"> {description} <button onClick={() => hideToggle(id)} className={`w-12 h-5 rounded-full  menuShadow ${hideWeight[id]? "bg-black" : "bg-violet-500"} flex items-center`}> <div className={`w-6 h-4  rounded-full  ${hideWeight[id]? "bg-white ml-0.5" : "ml-5.5 bg-black/80"} `}></div></button> </div>))}
           </div>
        </div>
 
