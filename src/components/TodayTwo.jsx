@@ -14,7 +14,7 @@ const TodayTwo = ({homeForecast}) => {
             <h1 className={`boxShadow2 flex relative z-1 flex-row justify-center items-center text-xl font-bold text-white/90 pl-5 pr-5 pb-2 pt-2 rounded-b-[50%] rounded-t-[50%] outline-none ${theme===true? "bg-gradient-to-b from-violet-100 via-violet-600 to-violet-100" : "bg-zinc-700"}`}> Sun Position</h1>
 
 
-                                          {/*bekar hai bhai*/}
+                                          {/*Useless hai bhai*/}
             <div className={`outline-1 ${theme===true? "outline-violet-600":"outline-zinc-400"} w-[50%] left-10 absolute `}></div>
             <div className={`outline-1 ${theme===true? "outline-violet-600":"outline-zinc-400"} w-[50%] right-10 absolute `}></div>
     
