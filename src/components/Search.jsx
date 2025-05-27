@@ -56,7 +56,7 @@ setHistory(updateHistory);
             onChange={(e) => {setInputCity(e.target.value);setSearchError("")}} className={`${searchError? "placeholder: text-red-600" : "placeholder: text-black "} outline-none capitalize text-black  text-md h-full w-[75%] ml-5`} />
          <button onClick={handleSearch} ><IoMdSearch className={`size-10  rounded-full p-2 mr-1  ${theme===true? "bg-violet-600 " : "bg-zinc-800 "} hover:scale-105 cursor-pointer`} /></button>  
         </div>
-        {/* suggestion ke liye */}
+        {/*for suggestion  */}
 {suggestions && (
   <ul className='absolute z-1 top-25 gap-2 w-[90%] h-fit flex flex-col max-h-full mt-6 overflow-scroll rounded-2xl bg-white cursor-pointer'>
 {  suggestions.map((item,inx) => (
@@ -67,7 +67,7 @@ setHistory(updateHistory);
 }
 </ul>)}
 
-{/* suggestion ke liye */}
+{/*for suggestion */}
         <div onClick={() => setHistory([])} className={`flex flex-row w-[90%] min-h-10 h-fit mt-4 justify-between overflow-hidden  ${theme===true? "bg-red-400 " : "bg-black/80 "} rounded-2xl `}>
         <p className={`flex flex-row justify-center items-center text-xl text-white/90  ${theme===true? " bg-gradient-to-b from-violet-100 to-violet-600 " : " bg-gradient-to-b from-zinc-400 to-zinc-700  "}outline-none font-bold rounded-tr-full rounded-l-2xl w-[60%] h-full`}>
         Search History
