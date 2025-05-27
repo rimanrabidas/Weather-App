@@ -54,7 +54,7 @@ const MainPart = ({weekday,weatherType,localDate,localTime}) => {
 </div>
 <div className="SunnyCloudy">
   <div className={`${weatherType===1000? "" : "hidden"} absolute right-7 bottom-7 rounded-full w-20 h-20 bg-yellow-200 animate-[ping_3s_infinite] `}></div>
-  <img className='absolute right-0 bottom-0 size-35 ' src={`public/${weatherType}.png`} alt="Weather Icon" />
+  <img className='absolute right-0 bottom-0 size-35 ' src={`/${weatherType}.png`} alt="Weather Icon" />
 </div>
 
         </div>

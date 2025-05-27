@@ -4,9 +4,9 @@ import Navbar from '../components/Navbar';
 import { NavLink } from 'react-router-dom';
 import ForecastMain from '../components/ForecastMain';
 import DailyForecast from '../components/DailyForecast';
-import SunRiseSetTime from '../components/sunRiseSetTime';
 import { UseApi } from '../../BioContext';
 import { FaHeart } from 'react-icons/fa6';
+import SunRiseSetTime from '../components/SunRiseSetTime';
 
 const Forecast = () => {
   const {theme,dailyForecastWeather}= UseApi()

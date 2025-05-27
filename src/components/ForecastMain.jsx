@@ -58,7 +58,7 @@ console.log(selectDay)
   {dailyForecastWeather.data.timelines[0].intervals.slice(-5).map((id,index) => (
   <div onClick={() => setSelectDay(id)} key={index} className={`flex flex-col justify-between items-center p-2 border  min-w-18 h-[90%] rounded-2xl ${theme===true? "text-violet-600":"text-zinc-100"} ${selectDay?.startTime === id.startTime? `${theme===true? "bg-gradient-to-t from-violet-500 via-orange-50/5 to-violet-600  text-white " : "bg-gradient-to-t from-zinc-500 via-orange-50/5 to-zinc-600  text-white "}` :'text-violet-500'} `}>
   <div className="">{index  === 0? "Tomorrow" : new Date(id.startTime).toLocaleDateString('en-US',{weekday: 'long'})}</div>
-  <img className='size-10' src={`public/${id.values.weatherCode}.png`} alt="Weather Icon" />
+  <img className='size-10' src={`/${id.values.weatherCode}.png`} alt="Weather Icon" />
   <div className="">{id.values.temperature.toFixed()}°C</div>
   <div className={`${selectDay?.startTime === id.startTime? `text-violet-500 block ` :'hidden'} absolute -bottom-2`}><RiArrowDownSFill className={`${theme===true? "text-violet-500" : "text-zinc-200"} size-10`}/></div>
     </div>
@@ -82,7 +82,7 @@ console.log(selectDay)
 
 </div>
 <div className="SunnyCloudy">
-<img className='absolute right-4 bottom-0 size-35' src={`public/${selectDay.values.weatherCode}.png`} alt="Weather Icon" />
+<img className='absolute right-4 bottom-0 size-35' src={`/${selectDay.values.weatherCode}.png`} alt="Weather Icon" />
 </div>
 
         </div>)
