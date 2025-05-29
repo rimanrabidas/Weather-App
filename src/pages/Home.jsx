@@ -145,7 +145,7 @@ const [hideWeight,setHideWeight] = useState({1:true, 2:true, 3:true, 4:true, 5:t
         <RiMenuUnfoldFill onClick={() => setMenubar(!menubar)} className={` sideBerAndLocationTrack size-11 border-1 border-black/20 p-2 rounded-md ${theme===true? "text-violet-700" : "text-zinc-300"} hover:scale-105 cursor-pointer`}/>
         <span onClick={() => setSearchPage(!searchPage)} className={`boxShadow2 flex flex-row gap-1 justify-start items-center ${theme===true? "bg-gradient-to-b  from-violet-300 to-violet-600": "bg-gradient-to-b  from-zinc-500 to-zinc-700"} rounded-b-full pl-5 pr-5 pt-1`}>
           <h1 className='flex gap-0.5 font-bold text-white/90 text-md'><MdOutlineLocationOn className='size-5'/>{city}, {country}</h1> 
-        </span>
+        </span> 
         <BiCurrentLocation onClick={handleGeolocation} className={`sideBerAndLocationTrack size-11 border-1  border-black/20 p-2 rounded-md ${theme===true? "text-violet-700" : "text-zinc-300"} hover:scale-105 cursor-pointer`}/> </div>
 <MainPart weatherType={weatherType} localDate={localDate} localTime={localTime} weekday={weekday} />
   <h2 className={`mt-7 pl-1 pt-1 rounded-t-sm rounded-tr-full w-[40%]  ${theme===true? "bg-violet-500" : "bg-zinc-700"} font-bold`}>Hourly Forecast</h2>
@@ -165,7 +165,7 @@ const [hideWeight,setHideWeight] = useState({1:true, 2:true, 3:true, 4:true, 5:t
         <TodayTwo homeForecast={homepageForecast}/>
         <Navbar setSearchPage={setSearchPage} searchPage={searchPage}/>
         <Search  setSearchPage={setSearchPage} searchPage={searchPage} handleGeolocation={handleGeolocation}/>
- <div className="flex flex-col items-center justify-center w-full h-fit text-3xl text-zinc-400 font-bold mt-16 fontstyle"> <p className='flex'>Made With <FaHeart className='size-8 ml-2 text-violet-600' /></p><p className='text-[1.2rem] font-light '>by Riman</p></div>
+ <div className="flex flex-col items-center justify-center w-full h-fit text-3xl text-zinc-400 font-bold mt-16 fontstyle"> <p className='flex'>Made With <FaHeart className='size-8 ml-2 text-violet-600' /></p><p className='text-[1.2rem] font-light '>by Riman Rabidas</p></div>
       <Menubar menubar = {menubar} setMenubar = {setMenubar}  setSearchPage={setSearchPage}
         searchPage={searchPage} homepageForecast={homepageForecast} setHomepageForecast = {setHomepageForecast} menuItem={todayLine} hideToggle={hideToggle} hideWeight={hideWeight}/>
     </div>
