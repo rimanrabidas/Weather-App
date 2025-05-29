@@ -149,7 +149,7 @@ const Search = ({ searchPage, setSearchPage, handleGeolocation }) => {
                 className="flex flex-row items-center p-2 text-md text-black rounded-full gap-2 hover:bg-black/10"
                 onClick={() => {
                   setCity(`${item.city}`);
-                  setHistory([...prev, item.city]);
+                  setHistory((prev) => [...prev, item.city]);
                   setInputCity("");
                   setSuggestions([]);
                   setSearchError("");
