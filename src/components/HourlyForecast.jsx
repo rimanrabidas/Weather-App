@@ -124,7 +124,7 @@ const HourlyForecast = () => {
                 } w-[60%] h-full flex flex-col justify-end items-center`}
               >
                 <div className="text-sm ">
-                  {hour.values.temperature.toFixed()}°C{" "}
+                  {hour.values.temperature.toFixed()}°C
                 </div>
                 <div
                   style={{
@@ -146,19 +146,19 @@ const HourlyForecast = () => {
               <div
                 className={`${
                   humidity === true ? "block" : "hidden"
-                } w-[60%] h-full flex flex-col justify-end items-center`}
+                } w-[60%] h-full rounded-b-2xl mt-2 flex flex-col justify-end items-center shadow shadow-black/50 border-b border-l border-r`}
               >
                 <div className="text-sm ">
-                  {hour.values.humidity.toFixed()}%{" "}
+                  {hour.values.humidity.toFixed()}%
                 </div>
                 <div
                   style={{
                     height: `${hour.values.humidity.toFixed()}%`,
-                    backgroundColor: `rgb(165,${
-                      150 - hour.values.humidity.toFixed() * 3
-                    },${255 - hour.values.humidity.toFixed()})`,
+                    backgroundColor: `rgb(${
+                      255 - hour.values.humidity.toFixed() * 2
+                    },${255 - hour.values.humidity.toFixed() * 2},255)`,
                   }}
-                  className={` w-full rounded-2xl`}
+                  className={` w-full rounded-b-2xl`}
                 >
                   {" "}
                 </div>
@@ -174,12 +174,19 @@ const HourlyForecast = () => {
                 } w-[115%] h-full pt-1 flex flex-col justify-between items-center`}
               >
                 <div className=" text-sm">{hour.values.windSpeed} kph</div>
-                <FiNavigation2
-                  style={{ rotate: `${hour.values.windDirection}deg` }}
-                  className={`${
-                    theme === true ? " text-black " : " text-white/70"
-                  } size-11`}
-                />
+                <div className="w-12 h-12 text-sm text-black flex items-center justify-center border border-violet-500 p-2 rounded-full relative">
+                  <p className="absolute -top-4.5">N</p>
+                  <p className="absolute -right-2">E</p>
+                  <p className="absolute -bottom-5">S</p>
+                  <p className="absolute -left-3">W</p>
+                  <FiNavigation2
+                    style={{ rotate: `${hour.values.windDirection}deg` }}
+                    className={`${
+                      theme === true ? " text-black " : " text-white/70"
+                    } size-8`}
+                  />
+                </div>
+
                 <div className=""></div>
               </div>
             ) : (

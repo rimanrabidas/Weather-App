@@ -63,12 +63,11 @@ const Forecast = () => {
 
         <SunriseSunset selectDay={selectDay} />
 
-        <div className="flex flex-col items-center justify-center w-full h-fit text-3xl text-zinc-400 font-bold mt-16 fontstyle">
-          {" "}
+        <div className="flex flex-col items-center justify-center w-full h-fit text-2xl text-zinc-400 font-bold mt-16 fontstyle">
           <p className="flex">
-            Made With <FaHeart className="size-8 ml-2 text-violet-600" />
+            Made With <FaHeart className="size-8 ml-2 text-violet-500" />
           </p>
-          <p className="text-[1.2rem] font-light">by Riman Rabidas</p>
+          <p className="rimanBabu">by Riman Rabidas</p>
         </div>
 
         {/*repeat*/}

@@ -1,14 +1,13 @@
-import { Outlet } from "react-router-dom"
-import ScrollToTop from "./ScrollToTop"
-
+import { Outlet } from "react-router-dom";
+import ScrollToTop from "./ScrollToTop";
 
 function MainLayout() {
   return (
     <>
-    <ScrollToTop/>
-    <Outlet/>
+      <ScrollToTop />
+      <Outlet />
     </>
-  )
+  );
 }
 
-export default MainLayout
+export default MainLayout;
