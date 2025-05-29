@@ -321,7 +321,7 @@ const Home = () => {
                 </div>
                 <img
                   className="size-10"
-                  src={`public/${timeline.values.weatherCode}.png`}
+                  src={`/${timeline.values.weatherCode}.png`}
                   alt="Weather Icon"
                 />
                 <div className="">
