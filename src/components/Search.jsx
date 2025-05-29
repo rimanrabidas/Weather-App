@@ -72,7 +72,7 @@ useEffect(() => {
 {suggestions && (
   <ul className='absolute z-1 top-25 gap-2 w-[90%] h-fit flex flex-col max-h-full mt-6 overflow-scroll rounded-2xl bg-white cursor-pointer'>
 {  suggestions.map((item,inx) => (
-<li  key={inx} className='flex flex-row items-center p-2 text-md text-black rounded-full gap-2 hover:bg-black/10'  onClick={() => {setCity(`${item.city}`);setHistory((prev) => prev.includes(item.city) ? prev : [...prev,item.city]); setInputCity(""); setSuggestions([]);setSearchError("")}}>
+<li  key={inx} className='flex flex-row items-center p-2 text-md text-black rounded-full gap-2 hover:bg-black/10'  onClick={() => {setCity(`${item.city}`);setHistory([...prev,item.city]); setInputCity(""); setSuggestions([]);setSearchError("")}}>
   <IoMdSearch className='size-6'/>{item.city}, {item.state}, {item.country}
    </li>
 ))  
