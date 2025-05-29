@@ -4,7 +4,7 @@ import { IoSunny } from "react-icons/io5";
 import { UseApi } from "../../BioContext";
 import { useState } from "react";
 
-const SunRiseSetTime = ({ selectDay }) => {
+const SunriseSunset = ({ selectDay }) => {
   const { theme } = UseApi();
 
   const [clip, setClip] = useState(true);
@@ -50,4 +50,4 @@ const SunRiseSetTime = ({ selectDay }) => {
   );
 };
 
-export default SunRiseSetTime;
+export default SunriseSunset;

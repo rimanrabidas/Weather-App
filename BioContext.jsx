@@ -10,7 +10,7 @@ const [forecastWeather, setForecastWeather] = useState();
 const [dailyForecastWeather, setDailyForecastWeather] = useState(); 
 const [error,setError] = useState();
 const [loading,setLoading] = useState(true);
-const [inputCity, setInputCity] = useState();
+const [inputCity, setInputCity] = useState("");
 const [city, setCity] = useState(() => {const savedCity = localStorage.getItem('lastCity'); return savedCity || "delhi"});
 const [theme,setTheme]  = useState(true)
 const [history,setHistory] =  useState([]);

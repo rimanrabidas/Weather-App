@@ -6,8 +6,8 @@ import ForecastMain from "../components/ForecastMain";
 import DailyForecast from "../components/DailyForecast";
 import { UseApi } from "../../BioContext";
 import { FaHeart } from "react-icons/fa6";
-// import SunRiseSetTime from "../components/SunRiseSetTime";
-import SunRiseSetTime from "../components/SunRiseSetTime";
+// import SunriseSunset from "../components/SunriseSunset";
+import SunriseSunset from "../components/SunriseSunset";
 
 const Forecast = () => {
   const { theme, dailyForecastWeather } = UseApi();
@@ -61,7 +61,7 @@ const Forecast = () => {
         </div>
         <DailyForecast selectDay={selectDay} />
 
-        <SunRiseSetTime selectDay={selectDay} />
+        <SunriseSunset selectDay={selectDay} />
 
         <div className="flex flex-col items-center justify-center w-full h-fit text-3xl text-zinc-400 font-bold mt-16 fontstyle">
           {" "}
