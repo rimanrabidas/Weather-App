@@ -7,7 +7,7 @@ import { IoChevronBack, IoClose } from 'react-icons/io5'
 import { MdOutlineAddLocationAlt } from 'react-icons/md'
 import { UseApi } from '../../BioContext'
 import { FaRedo } from 'react-icons/fa'
-import { useEffect } from 'react'
+import { useEffect, useRef} from 'react'
 
 const Search = ({searchPage,setSearchPage,handleGeolocation}) => {
 const {inputCity,setInputCity,handleSearch,theme,setCity,history,setHistory,suggestions,setSuggestions,searchError,setSearchError} = UseApi();
@@ -17,7 +17,19 @@ console.log(value);
 const updateHistory = history.filter((curHistory) => curHistory !== value);
 setHistory(updateHistory);
 }
-
+const handleKeyDown = (e) =>{
+  if (e.key === 'Enter' && inputCity.trim() !== '') {
+    handleSearch(inputCity);
+  }
+}
+const inputRef = useRef(null);
+useEffect(() => {
+  if (searchPage) {
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 100);
+  }
+},[searchPage]);
 
 
  const searchList = [
@@ -52,7 +64,7 @@ setHistory(updateHistory);
              
         <div className="w-[90%] h-12 mt-18 bg-white/80 flex justify-between items-center rounded-full">
         
-            <input type="text" placeholder={searchError? searchError :'Search location'}  value={inputCity}
+            <input type="text" onKeyDown={handleKeyDown} ref={inputRef} placeholder={searchError? searchError :'Search location'}  value={inputCity}
             onChange={(e) => {setInputCity(e.target.value);setSearchError("")}} className={`${searchError? "placeholder: text-red-600" : "placeholder: text-black "} outline-none capitalize text-black  text-md h-full w-[75%] ml-5`} />
          <button onClick={handleSearch} ><IoMdSearch className={`size-10  rounded-full p-2 mr-1  ${theme===true? "bg-violet-600 " : "bg-zinc-800 "} hover:scale-105 cursor-pointer`} /></button>  
         </div>
@@ -60,7 +72,7 @@ setHistory(updateHistory);
 {suggestions && (
   <ul className='absolute z-1 top-25 gap-2 w-[90%] h-fit flex flex-col max-h-full mt-6 overflow-scroll rounded-2xl bg-white cursor-pointer'>
 {  suggestions.map((item,inx) => (
-<li  key={inx} className='flex flex-row items-center p-2 text-md text-black rounded-full gap-2 hover:bg-black/10'  onClick={() => {setCity(`${item.city}`); setInputCity(""); setSuggestions([]);setSearchError("")}}>
+<li  key={inx} className='flex flex-row items-center p-2 text-md text-black rounded-full gap-2 hover:bg-black/10'  onClick={() => {setCity(`${item.city}`);setHistory((prev) => prev.includes(item.city) ? prev : [...prev,item.city]); setInputCity(""); setSuggestions([]);setSearchError("")}}>
   <IoMdSearch className='size-6'/>{item.city}, {item.state}, {item.country}
    </li>
 ))  

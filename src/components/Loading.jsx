@@ -2,7 +2,7 @@ const Loading = () => {
     const load=[1,2,3,4,5,6,7,8]
   return (
     <div className="flex items-center relative overflow-hidden flex-col w-full h-full pl-5 pr-5 bg-violet-100 animate-pulse">
-        <div className="flex absolute rotate-[45deg] w-fit h-[100%] shadoww">
+        <div className="flex absolute rotate-[45deg] w-fit h-[100%] shadow">
         <div className="flex w-22 h-[100%] bg-violet-100 "></div>
         <div className="flex w-5 h-[100%] bg-violet-100 m-3"></div>    
         </div>

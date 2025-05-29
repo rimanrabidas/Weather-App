@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import Loading from "./src/components/Loading";
 
 export const BioContext = createContext();
@@ -20,7 +20,18 @@ const [searchError,setSearchError] = useState();
 useEffect(() => {
   localStorage.setItem('lastCity', city);
 }, [city]);
+useEffect(() => {
+  try {
+      const saved = JSON.parse(localStorage.getItem('search-history') || '[]');
+  setHistory(saved);
+  } catch (error) {
+    console.error('Error Loading History',error)
+  }
 
+},[]);
+useEffect(() => {
+  localStorage.setItem('search-history', JSON.stringify(history))
+},[history]);
 
 useEffect(() => {
 const fetchWeather = async () => {
@@ -33,7 +44,7 @@ const fetchWeather = async () => {
     const [weatherRes,forecastRes,dailyForecastRes] = await Promise.all([fetch(weatherUrl),fetch(forecastUrl),fetch(dailyForecastUrl)]);  
 
     if(!weatherRes.ok || !forecastRes.ok || !dailyForecastRes.ok) {
-      throw new Error("Fetch Failed  : ('-')");
+      throw new Error("Fetch Failed  : ('-') ");
     }
     const weatherData = await weatherRes.json();
     const forecastData = await forecastRes.json();
@@ -74,7 +85,7 @@ console.log(dailyForecastData)
     };
     const delayDebounce = setTimeout(() => {
       fetchSuggestions();
-    }, 500); 
+    }, 300); 
 
     return () => clearTimeout(delayDebounce);
   }, [inputCity]);
