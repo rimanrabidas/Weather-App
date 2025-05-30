@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import Loading from "./src/components/Loading";
+import FetchError from "./src/components/FetchError";
 
 export const BioContext = createContext();
 
@@ -8,6 +9,7 @@ export const ApiProvider = ({ children }) => {
   const [forecastWeather, setForecastWeather] = useState();
   const [dailyForecastWeather, setDailyForecastWeather] = useState();
   const [error, setError] = useState();
+  const [fetchError, setFetchError] = useState(false);
   const [loading, setLoading] = useState(true);
   const [inputCity, setInputCity] = useState("");
   const [city, setCity] = useState(() => {
@@ -49,7 +51,8 @@ export const ApiProvider = ({ children }) => {
         ]);
 
         if (!weatherRes.ok || !forecastRes.ok || !dailyForecastRes.ok) {
-          throw new Error("Fetch Failed  : ('-') ");
+          setFetchError(true);
+          return;
         }
         const weatherData = await weatherRes.json();
         const forecastData = await forecastRes.json();
@@ -95,6 +98,8 @@ export const ApiProvider = ({ children }) => {
 
   if (error) return <p> Error: {error}</p>;
   if (loading) return <Loading />;
+  if (fetchError) return <FetchError />;
+
 
   const handleSearch = () => {
     if (!inputCity) return;
@@ -154,6 +159,7 @@ export const ApiProvider = ({ children }) => {
         setSuggestions,
         searchError,
         setSearchError,
+        fetchError,
       }}
     >
       {children}

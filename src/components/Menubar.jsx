@@ -95,7 +95,7 @@ const Menubar = ({
             onClick={handleSearchBer}
             className="flex w-full h-fit text-xl gap-5 items-center"
           >
-            <MdSearch className="size-8" /> Search{" "}
+            <MdSearch className="size-8" /> Search
           </div>
           <NavLink
             to={"/forecast"}
@@ -113,7 +113,7 @@ const Menubar = ({
                 theme === true ? "bg-black" : "bg-amber-400"
               } flex items-center`}
             >
-              {" "}
+              
               <div
                 className={`w-6 h-4  rounded-full  ${
                   theme === true ? "bg-white ml-0.5" : "ml-5.5 bg-black/80"
@@ -129,7 +129,7 @@ const Menubar = ({
                 homepageForecast === false ? "bg-black" : "bg-violet-500"
               } flex items-center`}
             >
-              {" "}
+              
               <div
                 className={`w-6 h-4  rounded-full  ${
                   homepageForecast === false
@@ -147,7 +147,7 @@ const Menubar = ({
           >
             <div className="flex items-center gap-2">
               <BiSolidWidget className="size-8" /> Weight Hide
-            </div>{" "}
+            </div>
             {weightBer ? <FaAngleDown /> : <FaAngleUp />}
           </div>
           <div
@@ -160,21 +160,20 @@ const Menubar = ({
                 key={id}
                 className="flex w-full  justify-between p-1 pl-3 pr-3"
               >
-                {" "}
-                {description}{" "}
+                
+                {description}
                 <button
                   onClick={() => hideToggle(id)}
                   className={`w-12 h-5 rounded-full  menuShadow ${
                     hideWeight[id] ? "bg-black" : "bg-violet-500"
                   } flex items-center`}
                 >
-                  {" "}
                   <div
                     className={`w-6 h-4  rounded-full  ${
                       hideWeight[id] ? "bg-white ml-0.5" : "ml-5.5 bg-black/80"
                     } `}
                   ></div>
-                </button>{" "}
+                </button>
               </div>
             ))}
           </div>
@@ -186,12 +185,16 @@ const Menubar = ({
           }`}
         >
           <div className=" flex w-full h-fit gap-2 items-center justify-center">
-            {" "}
-            <p> Contact me</p> / <p>Socials</p>{" "}
+            
+            <p> Contact me</p> / <p>Socials</p>
           </div>
           <div className="flex w-full h-fit gap-5 items-center justify-center">
-            <FaLinkedin className="size-6" />
-            <FaSquareGithub className="size-6" />
+            <a href="https://www.linkedin.com/in/riman-rabidas-2b7784291?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
+              <FaLinkedin className="size-6" />
+            </a>
+            <a href="https://github.com/rimanrabidas">
+              <FaSquareGithub className="size-6" />
+            </a>
             <FaTwitterSquare className="size-6" />
             <FaTelegramPlane
               className={`size-6 ${

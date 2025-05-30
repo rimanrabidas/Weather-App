@@ -14,6 +14,7 @@ import MainPart from "../components/MainPart";
 import { IoTimer } from "react-icons/io5";
 import { FiNavigation2 } from "react-icons/fi";
 import { WiRainMix } from "react-icons/wi";
+import SunPosition from "../components/SunPosition ";
 
 const Home = () => {
   const { weather, theme, forecastWeather, setCity } = UseApi();

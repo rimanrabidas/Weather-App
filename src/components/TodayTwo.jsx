@@ -3,6 +3,7 @@ import { UseApi } from "../../BioContext";
 import { FaAngleDoubleRight } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import HourlyForecast from "./HourlyForecast";
+import SunPosition from "./SunPosition ";
 
 const TodayTwo = ({ homeForecast }) => {
   const { theme, dailyForecastWeather } = UseApi();
@@ -14,7 +15,7 @@ const TodayTwo = ({ homeForecast }) => {
             className={`Rotate size-8 ${
               theme === true ? "text-violet-600" : "text-zinc-400"
             }`}
-          />{" "}
+          />
         </div>
         <h1
           className={`boxShadow2 flex relative z-1 flex-row justify-center items-center text-xl font-bold text-white/90 pl-5 pr-5 pb-2 pt-2 rounded-b-[50%] rounded-t-[50%] outline-none ${
@@ -23,7 +24,7 @@ const TodayTwo = ({ homeForecast }) => {
               : "bg-zinc-700"
           }`}
         >
-          {" "}
+          
           Sun Position
         </h1>
 
@@ -49,20 +50,21 @@ const TodayTwo = ({ homeForecast }) => {
       </div>
 
       <div
-        className={`flex boxShadow mt-6 flex-col lg:w-[60%] lg:ml-[20%]  w-full justify-center items-center ${
+        className={`flex boxShadow relative z mt-6 flex-col lg:w-[60%] lg:ml-[20%]  w-full justify-center items-center ${
           theme === true ? "bg-white " : "bg-zinc-800 "
         } h-36 rounded-2xl mb-[-2rem]`}
-      >
+        >
+        <SunPosition/>
         <div
           className={` relative flex flex-col w-full text-sm  h-full rounded-2xl ${
             theme === true
-              ? " text-black/80 sunPosition"
+              ? " text-black/60 sunPosition"
               : " text-white/80 sunPositionDark"
           } justify-center items-center`}
         >
           <div
             className={`flex absolute w-20 z-1 h-6 ${
-              theme === true ? " bg-black" : " bg-white/80"
+              theme === true ? " bg-black/25" : " bg-white/80"
             } justify-center items-center rounded-full`}
           >
             <div
@@ -70,8 +72,8 @@ const TodayTwo = ({ homeForecast }) => {
                 theme === true ? " bg-white" : " bg-zinc-800"
               } justify-center items-center rounded-full text-[0.7rem]`}
             >
-              {" "}
-              Horizon{" "}
+              
+              Horizon
             </div>
           </div>
           <div className="flex justify-center items-center w-28 h-14 rounded-t-full border-2 border-b-0  border-yellow-400 ">
@@ -79,10 +81,10 @@ const TodayTwo = ({ homeForecast }) => {
           </div>
           <div
             className={`flex justify-center items-center w-28 h-14 rounded-b-full border-2 border-t-0 ${
-              theme === true ? " border-black/90" : " border-white/80"
+              theme === true ? " border-black/20" : " border-white/80"
             }`}
           >
-            {" "}
+            
             Night
           </div>
           <div className="absolute flex outline-1 w-[93%] "></div>
