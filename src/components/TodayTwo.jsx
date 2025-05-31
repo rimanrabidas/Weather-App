@@ -50,13 +50,13 @@ const TodayTwo = ({ homeForecast }) => {
       </div>
 
       <div
-        className={`flex boxShadow relative z mt-6 flex-col lg:w-[60%] lg:ml-[20%]  w-full justify-center items-center ${
+        className={`flex boxShadow relative mt-6 flex-col lg:w-[60%] lg:ml-[20%]  w-full justify-center items-center ${
           theme === true ? "bg-white " : "bg-zinc-800 "
-        } h-36 rounded-2xl mb-[-2rem]`}
+        } h-40 rounded-2xl mb-[-2rem]`}
         >
         <SunPosition/>
         <div
-          className={` relative flex flex-col w-full text-sm  h-full rounded-2xl ${
+          className={` relative  flex flex-col w-full text-sm  h-full rounded-2xl ${
             theme === true
               ? " text-black/60 sunPosition"
               : " text-white/80 sunPositionDark"

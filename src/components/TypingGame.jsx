@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import { AiFillSound } from "react-icons/ai";
+import { FaGrinTongueWink } from "react-icons/fa";
+import { IoLogoGameControllerB } from "react-icons/io";
 
 const TypingGame = ({game,setGame}) => {
   const [char, setChar] = useState("");
@@ -47,15 +50,22 @@ const TypingGame = ({game,setGame}) => {
   return (
     <div className="text-center relative w-[80%] rounded-2xl pt-5 bg-white">
         <button onClick={() => setGame(!game)} className="absolute top-0 left-0 rounded-t-2xl bg-blue-700 text-white p-1 pl-5 pr-5 cursor-pointer">Back</button>
-      <h2 className="text-xl mt-3 bg-red-300 p-1 mb-2">⌨️ Type the Word</h2>
-      <div className="text-5xl animate-pulse mt-5 font-bold text-indigo-600 mb-4 uppercase">{char}</div>
+      <h2 className="text-xl text-white mt-3 bg-red-300 p-1 mb-2"> Type the Word</h2>
+      <div className="text-4xl animate-pulse mt-5 font-bold text-indigo-600 mb-4 uppercase">{char}</div>
       <input
         type="text"
         value={input}
         onChange={handleChange}
         className="text-center text-xl px-3 py-1 border border-gray-400 rounded"
       />
-      <p className="mt-4 mb-5">Score: {score}</p>
+      <p className="mt-4 gap-2 w-full flex justify-center mb-5">Score: <p className="text-green-700"> {score}</p>  / 100</p>
+      {score===100&&<div className="w-full h-full bg-white absolute top-0 left-0 rounded-2xl flex flex-col gap-5 justify-center items-center">
+         <p className="text-2xl flex items-center gap-2 ">
+          <FaGrinTongueWink className="size-8 mr-1 text-yellow-500" /> 
+        YOU WIN <IoLogoGameControllerB className="size-10 mr-1 text-yellow-500"  /></p>
+        <p className="flex gap-2 text-3xl"><AiFillSound className="size-10 text-yellow-400"/>Congratulations!</p>
+        <button onClick={() => setScore(0)} className="w-full h-10 bg-blue-600 text-xl text-white">Play Again</button>
+        </div>}
     </div>
   );
 };

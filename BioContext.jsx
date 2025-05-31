@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import Loading from "./src/components/Loading";
 import FetchError from "./src/components/FetchError";
+import BadRequest from "./src/components/BadRequest";
 
 export const BioContext = createContext();
 
@@ -9,7 +10,7 @@ export const ApiProvider = ({ children }) => {
   const [forecastWeather, setForecastWeather] = useState();
   const [dailyForecastWeather, setDailyForecastWeather] = useState();
   const [error, setError] = useState();
-  const [fetchError, setFetchError] = useState(false);
+  const [fetchError, setFetchError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [inputCity, setInputCity] = useState("");
   const [city, setCity] = useState(() => {
@@ -51,7 +52,7 @@ export const ApiProvider = ({ children }) => {
         ]);
 
         if (!weatherRes.ok || !forecastRes.ok || !dailyForecastRes.ok) {
-          setFetchError(true);
+          setFetchError(weatherRes.status);
           return;
         }
         const weatherData = await weatherRes.json();
@@ -98,7 +99,8 @@ export const ApiProvider = ({ children }) => {
 
   if (error) return <p> Error: {error}</p>;
   if (loading) return <Loading />;
-  if (fetchError) return <FetchError />;
+  if (fetchError===429) return <FetchError />;
+  if (fetchError===404) return <BadRequest />;
 
 
   const handleSearch = () => {
@@ -109,10 +111,15 @@ export const ApiProvider = ({ children }) => {
       console.log(`input length error`);
       return;
     }
-    if (!suggestions || suggestions.length === 0) {
+      if (!suggestions || suggestions.length === 0) {
       setSearchError("Invalid city name. Please try again");
       setInputCity("");
       console.log(`suggestions length error`);
+      return;
+    }
+       if (fetchError === 400) {
+      setSearchError("Invalid city name. Please try again");
+      setInputCity("");
       return;
     }
     if (suggestions || suggestions.length >= 1) {

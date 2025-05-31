@@ -59,8 +59,8 @@ import { UseApi } from "../../BioContext";
 
     return (
         <svg className="absolute"
-            width="122" 
-            height="122" 
+            width="130" 
+            height="130" 
             viewBox={`-${radius+20} -${radius+20} ${(radius+20)*2} ${(radius+20)*2}`}
 
         >
