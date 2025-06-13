@@ -23,7 +23,7 @@ const [game,setGame] = useState(false)
           </p>
            <button className="w-full h-10 bg-blue-700 rounded-2xl flex justify-center items-center gap-1.5 text-white cursor-pointer" onClick={() => window.location.reload()} ><RiRefreshLine className="size-5"/>Try Again</button>
             <button onClick={() => setGame(!game)} className="w-full h-10 bg-blue-500 rounded-2xl flex justify-center items-center gap-1.5 text-white cursor-pointer">Typing Game For Time Pass</button>
-         <button onClick={handleClearSTorage} className="w-full h-10 bg-red-200 rounded-2xl text-sm flex justify-center items-center gap-1.5 text-white cursor-pointer">clear Local Storage Only Emergency</button>
+         <button onClick={handleClearSTorage} className="w-full h-10 bg-red-200 rounded-2xl text-sm flex justify-center items-center gap-1.5 text-white cursor-pointer">Clear Local Storage Only Emergency</button>
             </div>
             {game && <TypingGame game={game} setGame = {setGame}/>}
         </div>
