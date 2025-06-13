@@ -283,6 +283,7 @@ const Home = () => {
             localTime={localTime}
             weekday={weekday}
           />
+         
           <h2
             className={`mt-7 pl-1 pt-1 rounded-t-sm rounded-tr-full w-[40%]  ${
               theme === true ? "bg-violet-500" : "bg-zinc-700"
@@ -331,6 +332,9 @@ const Home = () => {
               </div>
             ))}
           </div>
+           <amp-auto-ads type="adsense"
+        data-ad-client="ca-pub-4111488320263404">
+</amp-auto-ads>
           <Today
             highLightItem={todayLine}
             hideToggle={hideToggle}
